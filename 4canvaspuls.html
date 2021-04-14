@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="700" height="500">
+        你的浏览器不支持canvas
+    </canvas>
+    <script>
+        var cans = document.getElementById("myCanvas");
+        var ctx = cans.getContext("2d");
+
+
+        reDraw(100, 100);
+        //设置初始坐标
+        let x = 100, y = 100, key = getKey();
+
+        window.addEventListener("keydown", function (e) {
+            // ctx.clearRect(0, 0, cans.width, cans.height);
+            cans.height = cans.height;
+
+            //根据键盘的keyCode值，设定重新绘图的坐标并绘制新的图片
+            switch (key.direction) {
+                case "up":
+                    y -= 3;
+                    reDraw(x, y);
+                    break;
+                case "down":
+                    y += 3;
+                    reDraw(x, y);
+                    break;
+                case "left":
+                    x -= 3;
+                    reDraw(x, y);
+                    break;
+                case "right":
+                    x += 3;
+                    reDraw(x, y);
+                    break;
+                default:
+                    reDraw(x, y);
+            }
+        }, false);
+
+
+        //函数画出新的方块
+        function reDraw(x, y) {
+            ctx.moveTo(x, y );   //设置起点
+            ctx.arcTo(x, y + 100, x + 100, y + 100, 10); // 确定好第一个点后， 第二个点是沿着y轴，向下，并且C点是严重水平轴，拐角大小为10个单位， 其他三个都是一样的道理
+            ctx.arcTo(x + 100, y + 100, x + 100, y, 10);
+            ctx.arcTo(x + 100, y, x, y, 10);
+            ctx.arcTo(x, y, x, y + 100, 10);
+            // ctx.stroke();
+            ctx.fillStyle = "#b6b7bc";
+            ctx.fill();
+
+            // ctx.rect(x, y, 50, 50)
+            // ctx.fillStyle = "#b6b7bc";
+            // ctx.fill()
+        }
+        //将wasd和上下左右结合起来
+        function getKey() {
+            let key = {};
+
+            window.addEventListener("keydown", function (e) {
+
+                let keys = e.keyCode;
+
+                if (keys == 38 || keys == 87) {
+                    key.direction = "up";
+                } else if (keys == 39 || keys == 68) {
+                    key.direction = "right";
+                } else if (keys == 40 || keys == 83) {
+                    key.direction = "down";
+                } else if (keys == 37 || keys == 65) {
+                    key.direction = "left";
+                } else {
+                    key.direction = "";
+                }
+            }, false);
+
+
+
+            return key;
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

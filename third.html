@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>任务三</title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	@font-face {
+		font-family: "iconfont";
+		src: url('//at.alicdn.com/t/font_2464532_lo73h7lsk4.eot?t=1617507994151');
+		/* IE9 */
+		src: url('//at.alicdn.com/t/font_2464532_lo73h7lsk4.eot?t=1617507994151#iefix') format('embedded-opentype'),
+			/* IE6-IE8 */
+			url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOMAAsAAAAAB9QAAAM9AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDMIJrATYCJAMMCwgABCAFhG0HRBu/BsguIScbXkRAtIsBCZOb0jdccrSbjPi2CKr9Pnt29whAHTsgfeoCqKLiYgSwjYtEYVNfmWhk+e5b++2BH2JRN5FENXn7Prsc3/cGEYk8klWxhFe1DJFGNBl2WhY98UwPYAKJnkdnT3TjYacXQEiNpfKVfv4LbxYRoE/cO/2NJTafZbnMMflTF2AcUEB7Y9RFUiB5INgwdkFLvE2g2bho0lFpdR3xUpiLAnFT4XrilbErDa2hUaiv2FnEE3Ua093043Hw+fhsLbxI6jJz5emNEhPJf0efJ137qy57BMV0XrB9ZKwiCnG10n+ea5Rf5apZ1bs119YrQpoq9Y9ArhnrN/rHS0Q9s7kVLMJC4l2nIyJ4N1mQcP1B6mHxNp5hc+/QSNnxDbVGS13S9kmL3Yxr2E3fD7kR8tzkITezbj1mjbtBto4rN7r+IGuPG+6zOHPCzWjciN087fpacm81pxjD4Lr5u82dhwmPdszavMMWMPVqYEXG9573Lzuf03uW3YrmZk/f+DREa6GSnPvdbCl1Zqn0KyPnZZt70abJmUkT39ss0xy/+uSB7MVGTstnh53WwN5eSWNJPKmrTkaTtF8dpPrxQwCikUJDZOGk/98YE+FqEAs2hhuiwDSb700uteAl1PurveFYWur71eQsAh2CqpbfvE9I9S+fW3/Xdyy8Xg7TBmS/Igp4+7gcxKpaAd2dGm8mEPwcRceuoqlMRy6K3JEbgewoFZWAUh5SMcPdnoYb+zpnCY0ZBUPSYAxZo1lKYayiTosN1Gu0i2Yryva36CG4itKEZSMAodMmknY1ZJ2uKIXxiDr9XlCvM1zR7CxCTmwxH4pcJECPYKKGDqoY7TZmu1AOW2uAt1j0Iq0KuA0gVCVFE2Lj86UysIGYYo3ayhMRGWXCbqWl4D6wWOzUIezNYMTYJkRHZlwcq3pSrNFuJbJDAtBDwIQy6EApjOxsmNcfyYX31wBcCws90UCqijcAgkoZnkoQK74DpUxv60S6lUdUrbhECDEUI9hZUaXACyxW3o5yVE9rBoxQrKYBWYdMcagX66qPXd5ofb8D0My8OEeKHEX7LUBUbDwmIcZod3R430JtDIKKhAAAAAA=') format('woff2'),
+			url('//at.alicdn.com/t/font_2464532_lo73h7lsk4.woff?t=1617507994151') format('woff'),
+			url('//at.alicdn.com/t/font_2464532_lo73h7lsk4.ttf?t=1617507994151') format('truetype'),
+			/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+			url('//at.alicdn.com/t/font_2464532_lo73h7lsk4.svg?t=1617507994151#iconfont') format('svg');
+		/* iOS 4.1- */
+	}
+
+	.iconfont {
+		font-family: "iconfont" !important;
+		font-size: 16px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.iconsetting-1-copy:before {
+		content: "\e610";
+	}
+
+	.iconicon-test:before {
+		content: "\e620";
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+
+
+	.aside-nav {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		width: 150px;
+		height: 600px;
+		background-color: #ebebeb;
+		color: black;
+	}
+
+
+
+	/* 导航列表 */
+	/* 父导航 */
+	.parentNav {
+		height: 50px;
+		line-height: 50px;
+		cursor: pointer;
+		text-align: center;
+	}
+
+	.parentNav:hover {
+		background-color: #cccccc;
+
+	}
+
+	.parentNav span image {
+		width: 1px;
+	}
+
+
+
+	/* 子导航 */
+
+
+	.subNav {
+		display: none;
+	}
+
+	.subNav li a {
+		color: black;
+		display: inline-block;
+		width: 100%;
+		box-sizing: border-box;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+
+	.subNav li a:hover {
+		background-color: #cccccc;
+	}
+</style>
+
+<body>
+	<!-- 左侧导航栏 -->
+	<div class="aside-nav">
+
+		<!-- 导航列表 -->
+		<ul class="nav-list">
+
+
+			<!-- 父导航 1-->
+			<div class="parentNav">
+				<span>
+					<i class="iconfont iconicon-test"></i>
+					商城管理</span>
+			</div>
+			<!-- 子导航 1 -->
+			<ul class="subNav">
+				<li>
+					<a href="">发布商品</a>
+				</li>
+				<li>
+					<a href="">订单列表</a>
+				</li>
+				<li>
+					<a href="">轮播图列表</a>
+				</li>
+				<li>
+					<a href="">商品列表</a>
+				</li>
+			</ul>
+
+
+			<!-- 父导航 2-->
+			<div class="parentNav">
+				<i class="iconfont iconsetting-1-copy"></i>
+				<span>管理员设置</span>
+			</div>
+			<!-- 子导航 2-->
+			<ul class="subNav">
+				<li>
+					<a href="">添加管理员</a>
+				</li>
+				<li>
+					<a href="">修改密码</a>
+				</li>
+
+			</ul>
+
+		</ul>
+	</div>
+
+	<script>
+		var main = document.querySelector('.nav-list');
+		var lis = main.querySelectorAll(".subNav");
+		var parentNavs = main.querySelectorAll(".parentNav");
+
+
+
+		for (var i = 0; i < parentNavs.length; i++) {
+
+			parentNavs[i].setAttribute('index', i);//给每个父导航设置index属性
+
+			parentNavs[i].onclick = function () {
+				var index;
+				index = this.getAttribute('index');//读取被点击父导航的index值
+				console.log(index);
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].style.display = 'none';//将所有的子导航隐藏
+				}
+				lis[index].style.display = 'block';//显示与被点击父导航所对应的子导航
+			}
+		}
+
+
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务四</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(234, 245, 220);
+    }
+
+    #box1 {
+        width: 150px;
+        height: 150px;
+        background-color: rgb(197, 222, 238);
+        position: absolute;
+        border-radius: 10px;
+        float: left;
+    }
+</style>
+
+<body>
+    <box id="box1"></box>
+    <script>
+        var box1 = document.getElementById('box1')
+        var speed = 50;
+        document.addEventListener('keydown', function (e) {
+            console.log(e.keyCode);
+            switch (e.keyCode) {
+                case 37:
+                    //							alert('向左');left
+                    box1.style.left = box1.offsetLeft - speed + "px";
+                    break;
+                case 39:
+                    //							alert("向右");
+                    box1.style.left = box1.offsetLeft + speed + "px";
+                    break;
+                case 38:
+                    //							alert("向上");
+                    box1.style.top = box1.offsetTop - speed + "px";
+                    break;
+                case 40:
+                    //							alert('向下');
+                    box1.style.top = box1.offsetTop + speed + "px";
+                    break;
+            };
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务二</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        background-color: #35414d;
+        font-family: '宋体';
+    }
+
+    .box {
+        width: 300px;
+        height: 500px;
+        background-color: #edeef0;
+        margin: 30px auto;
+
+    }
+
+    /* 顶部样式 */
+    .top {
+        width: 300px;
+        height: 60px;
+        background-color: #edeef0;
+        color: #68baad;
+        line-height: 80px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    /* 输入部分样式 */
+    .text input {
+        width: 240px;
+        height: 45px;
+        background-color: #dbe4ed;
+        text-indent: 1em;
+        outline: none;
+        -webkit-appearance: button;
+        -webkit-appearance: none;
+        border-radius: 0;
+        border: none;
+        border: #d4dae1 solid 1px;
+    }
+
+
+    .text {
+        width: 240px;
+        height: 45px;
+        margin: 19px auto;
+    }
+
+
+
+    .box form {
+        background-color: #edeef0;
+    }
+
+    /* 获取验证码部分样式 */
+    .code {
+        width: 240px;
+        height: 45px;
+        margin: 18px auto;
+        background-color: #dbe4ed;
+    }
+
+    .code input {
+        width: 130px;
+        height: 45px;
+        background-color: #dbe4ed;
+        text-indent: 1em;
+        outline: none;
+        -webkit-appearance: button;
+        -webkit-appearance: none;
+        border-radius: 0;
+        border: none;
+    }
+
+    .code button {
+        width: 100px;
+        height: 45px;
+        background-color: #dbe4ed;
+        background-color: #4a8df6;
+        color: white;
+        outline: none;
+        -webkit-appearance: button;
+        -webkit-appearance: none;
+        border-radius: 0;
+        border: none;
+    }
+
+    /* 若手机号不符合要求出现的提示 */
+    .tel-error {
+        height: 4px;
+        color: red;
+        display: none;
+        background-color: #dbe4ed;
+    }
+
+    /* 提交部分 */
+    .submit {
+        width: 240px;
+        height: 45px;
+        margin: 18px auto;
+        background-color: #dbe4ed;
+    }
+
+    .submit input {
+        width: 240px;
+        height: 45px;
+        background-color: #dbe4ed;
+        text-indent: 1em;
+        background-color: #4a8df6;
+        color: white;
+        outline: none;
+        -webkit-appearance: button;
+        -webkit-appearance: none;
+        border-radius: 0;
+        border: none;
+
+    }
+
+    .box a {
+        background-color: #edeef0;
+        text-decoration: none;
+        color: #68baad;
+        font-size: small;
+        float: right;
+        padding-right: 30px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <!-- 顶部 -->
+        <div class="top">
+            注册
+        </div>
+        <!-- 注册主要内容 -->
+        <form actiom="">
+            <div class="text" id='box1'>
+                <input type="text" name="Phone" placeholder="手机号" id='tel'>
+                <!-- 手机号不符合要求 -->
+                <div class='tel-error' id='telError'>请输入正确的手机号</div>
+            </div>
+            <div class="text" id='box2'>
+                <input type="text" name="name" placeholder="昵称" id='name'>
+            </div>
+            <div class="text" id='box3'>
+                <input type="password" name="password" placeholder="密码" id='password1'>
+            </div>
+            <div class="text" id='box4'>
+                <input type="password" name="password" placeholder="再次输入密码" id='password2'>
+            </div>
+            <div class="code">
+                <input type="text" name="code" placeholder='验证码' id='code'>
+                <button id='ver'>获取验证码</button>
+            </div>
+            <div class="submit">
+                <input id="ok" type="submit" name="submit" value='注册'>
+            </div>
+
+        </form>
+        <!-- 右下角的去登陆部分 -->
+        <a href="#####" target="-blank">去登陆</a>
+    </div>
+    <script>
+        let ver = document.getElementById("ver"),
+            tel = document.getElementById("tel"),
+            telError = document.getElementById('telError'),
+            name = document.getElementById('name'),
+            password1 = document.getElementById('password1'),
+            password2 = document.getElementById('password2'),
+            code = document.getElementById('code'),
+            ok = document.getElementById('ok'),
+            num = 60
+        telReg = /^1[3456789]\d{9}$/;//设置手机号的要求
+
+        //点击注册按钮，验证手机号，昵称，密码均不能为空，如果为空，那么输入框的边框就变红
+        ok.onclick = function () {
+            if (tel.value == null || tel.value == "") {
+                tel.style.border = "red solid 1px";
+                // return false;
+            } else {
+                tel.style.border = "none";
+                // return false;
+            }
+            if (name.value == null || name.value == "") {
+                name.style.border = "red solid 1px";
+                // return false;
+            } else {
+                name.style.border = "none";
+                // return false;
+            }
+            if (password1.value == null || password1.value == "") {
+                password1.style.border = "red solid 1px";
+                // return false;
+            } else {
+                password1.style.border = "none";
+                // return false;
+            }
+            if (password2.value == null || password2.value == "") {
+                password2.style.border = "red solid 1px";
+                // return false;
+            } else {
+                password2.style.border = "none";
+                // return false;
+            }
+            if (code.value == null || code.value == "") {
+                code.style.border = "red solid 1px";
+                return false;
+            } else {
+                code.style.border = "none";
+                // return false;
+            }
+        }
+        //当输入框失去焦点判断是否为空
+        tel.onblur = function () {
+            if (tel.value == null || tel.value == "") {
+                tel.style.border = "red solid 1px";
+                return false;
+            } else {
+                tel.style.border = "none";
+            }
+        }
+        name.onblur = function () {
+            if (name.value == null || name.value == "") {
+                name.style.border = "red solid 1px";
+                return false;
+            } else {
+                name.style.border = "none";
+            }
+        }
+        password1.onblur = function () {
+            if (password1.value == null || password1.value == "") {
+                password1.style.border = "red solid 1px";
+                return false;
+            } else {
+                password1.style.border = "none";
+                // return false;
+            }
+        }
+        password2.onblur = function () {
+            if (password2.value == null || password2.value == "") {
+                password2.style.border = "red solid 1px";
+                return false;
+            } else {
+                password2.style.border = "none";
+                // return false;
+            }
+        }
+        code.onblur = function () {
+            if (code.value == null || code.value == "") {
+                code.style.border = "red solid 1px";
+                return false;
+            } else {
+                code.style.border = "none";
+                // return false;
+            }
+        }
+        ver.onclick = function () {
+            //判断手机号是否符合要求，符合要求点获取验证码进行倒计时
+            if (telReg.test(tel.value)) {
+                telError.style.display = 'none';//手机号符合要求隐藏提示
+                // ver.style.background = '#4a8df6';
+                // ver.style.color = '#fff';
+                settime(ver);
+            } else {
+                telError.style.display = 'block';//手机号不符合要求给出提示
+                return false;
+            }
+
+        }
+        //验证码倒计时效果
+        function settime(el) {
+            //当num为0的时候停下
+            if (num == 0) {
+                el.removeAttribute("disabled");//清除disabled属性
+                el.innerHTML = "获取验证码";//重置按钮内容
+                num = 60;
+                return;//若无将会继续从60倒计时
+            } else {
+                el.setAttribute("disabled", true);//设置disabled属性期间不能点击
+                el.innerHTML = num + "秒后再获取";
+                num--;
+            }
+            //定时器
+            setTimeout(function () {
+                settime(el);
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
